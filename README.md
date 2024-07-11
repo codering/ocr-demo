@@ -19,7 +19,7 @@
 - 每个图都调整完成后，点击“save”保存
 - 生成训练数据
  ```shell
-    # macos
+    # 
     echo Run Tesseract for Training..
     tesseract num.font.exp0.tif num.font.exp0 nobatch box.train
     
@@ -28,7 +28,7 @@
     mftraining -F font_properties -U unicharset -O num.unicharset num.font.exp0.tr
     
     
-    echo Clustering..
+    echo Cntraining..
     cntraining num.font.exp0.tr
     
     echo Rename Files..
@@ -40,10 +40,13 @@
     echo Create Tessdata..
     combine_tessdata num.
   ```
-- 将 num.trainddata 文件拷贝到 data 目录
-- 继续处理下一个运输单
-- 处理完成后，将 num.trainddata 复制到训练目录data中
-- 重新识别图片
+- 处理完成后, 将 num.trainddata 文件拷贝到 data 目录
+- 重新识别图片, 验证识别率
   ```shell
   tesseract order.jpg num01 -l num
   ```
+
+## 参考
+
+- https://blog.csdn.net/weixin_42872122/article/details/123730558
+- https://xtuz.cmypsc.com/detail-62.html
